@@ -25,7 +25,7 @@ class Graph:
     def addEdge(self, vertex: str, edge: str) -> None:
         self.g_dict[vertex].append(edge)
 
-    def addEdges(self, vertex: str, edges: list=[]) -> None:
+    def addEdges(self, vertex: str, edges: tuple=()) -> None:
         for edge in edges:
             self.g_dict[vertex].append(edge)
 
@@ -55,12 +55,12 @@ grafo_dir.addVertex('S')
 grafo_dir.addEdge('A', 'C')
 grafo_dir.addEdge('S', 'A')
 
-grafo_dir.addEdges('B', ['M', 'S'])
-grafo_dir.addEdges('M', ['A', 'B'])
+grafo_dir.addEdges('B', ('M', 'S'))
+grafo_dir.addEdges('M', ('A', 'B'))
 
 print('\n\t[+] Grafo dirigido [+]\n')
 pprint(grafo_dir.info, width=1)
 grafo_dir.generateAdjMat()
 
 print('\n\t[+] Matriz de adyacencia [+]\n')
-pprint(grafo_dir.adj_m)
+pprint(grafo_dir.adj_m, width=1)

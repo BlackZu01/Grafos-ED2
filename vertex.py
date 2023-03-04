@@ -6,4 +6,4 @@ class Vertex:
         self.adj = list()
     
     def __repr__(self) -> str:
-        return f'{self.g_dict}'
+        return f'{self.data}'
