@@ -43,19 +43,6 @@ class Graph:
                     if vertex[j] == self.g_dict[vertex[k]][i]:
                         self.adj_m[k][j] = 1
 
-    def dfs(self, v, visitados=None):
-        if visitados is None:
-            visitados = {}
-        visitados[v] = True
-        print(v, end=' ')
-
-        for vecino in self.g_dict.get(v, []):
-            if vecino not in visitados:
-                self.dfs(vecino, visitados)
-
-        def __repr__(self) -> str:
-            return f'{self.g_dict}'
-
 direc = {
     'A' : ['B'],
     'B': []
@@ -72,11 +59,9 @@ grafo_dir.addEdge('S', 'A')
 grafo_dir.addEdges('B', ('M', 'S'))
 grafo_dir.addEdges('M', ('A', 'B'))
 
-# print('\n\t[+] Grafo dirigido [+]\n')
-# pprint(grafo_dir.info, width=1)
+print('\n\t[+] Grafo dirigido [+]\n')
+pprint(grafo_dir.info, width=1)
 # grafo_dir.generateAdjMat()
 
 # print('\n\t[+] Matriz de adyacencia [+]\n')
 # pprint(grafo_dir.adj_m, width=1)
-
-grafo_dir.dfs('B')
