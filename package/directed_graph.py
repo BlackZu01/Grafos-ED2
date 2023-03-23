@@ -1,8 +1,6 @@
-from pprint import pprint
-from vertex import Vertex
 import numpy as np
 
-class Graph:
+class DirectedGraph:
     def __init__(self, g_dict: dict=None) -> None:
         if g_dict is None:
             self.g_dict = g_dict
@@ -25,6 +23,7 @@ class Graph:
         if data not in self.g_dict.keys():
             self.g_dict[data] = list()
             return 
+        raise ValueError('The vertex is already in the Graph')
     
     def addEdge(self, vertex: str, edge: str) -> None:
         self.g_dict[vertex].append(edge)
@@ -42,26 +41,3 @@ class Graph:
                 for i in range(len(self.g_dict[vertex[k]])):
                     if vertex[j] == self.g_dict[vertex[k]][i]:
                         self.adj_m[k][j] = 1
-
-direc = {
-    'A' : ['B'],
-    'B': []
-}
-
-grafo_dir = Graph(direc)
-grafo_dir.addVertex('C')
-grafo_dir.addVertex('M')
-grafo_dir.addVertex('S')
-
-grafo_dir.addEdge('A', 'C')
-grafo_dir.addEdge('S', 'A')
-
-grafo_dir.addEdges('B', ('M', 'S'))
-grafo_dir.addEdges('M', ('A', 'B'))
-
-print('\n\t[+] Grafo dirigido [+]\n')
-pprint(grafo_dir.info, width=1)
-# grafo_dir.generateAdjMat()
-
-# print('\n\t[+] Matriz de adyacencia [+]\n')
-# pprint(grafo_dir.adj_m, width=1)
