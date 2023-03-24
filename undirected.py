@@ -5,16 +5,23 @@ graf = {
     'A': [],
 }
 
-grafo = UndirectedGraph(graf)
-grafo.addVertex('C')
-grafo.addVertex('B')
-grafo.addVertex('D')
+# grafo = UndirectedGraph(graf)
+# grafo.addVertex('C')
+# grafo.addVertex('B')
+# grafo.addVertex('D')
 
-grafo.addEdge('A', 'C')
-grafo.addEdge('B', 'D')
+# grafo.addEdge('A', 'C')
+# grafo.addEdge('B', 'D')
 
-pprint(grafo.info, width=1)
+# pprint(grafo.info, width=1)
 
-grafo.generateAdjMat()
+# grafo.generateAdjMat()
 
-pprint(grafo.adj_m)
+# pprint(grafo.adj_m)
+
+pprint({
+    'A': [('B', 10), ('M', 20)],
+    'C': [],
+    'M': [('A'), 10]
+
+})
